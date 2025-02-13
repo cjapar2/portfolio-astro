@@ -55,12 +55,12 @@ import Cloud from "../components/cloud.astro";
         </svg>
       </div>
     </div>
-    <Cloud id="cloud1" />
-    <Cloud id="cloud2" />
-    <Cloud id="cloud3" />
-    <Cloud id="cloud4" />
-    <Cloud id="cloud5" />
-    <Cloud id="cloud6" />
+    <Cloud top="10%" left="10%" animationDuration="50s" />
+    <Cloud id="cloud2" top="30%" animationDuration="50s" />
+    <Cloud id="cloud3" top="50%" animationDuration="50s" />
+    <Cloud id="cloud4" top="70%" animationDuration="40s" />
+    <Cloud id="cloud5" top="20%" animationDuration="45s" />
+    <Cloud id="cloud6" top="60%" animationDuration="55s" />
   </div>
 </Layout>
 
@@ -80,12 +80,14 @@ import Cloud from "../components/cloud.astro";
     gap: 25px;
     left: 10%;
     top: 20%;
+    z-index: 2;
   }
 
   #hero-icons {
     display: flex;
     flex-direction: row;
     gap: 15px;
+    z-index: 2;
   }
 
   h1,
