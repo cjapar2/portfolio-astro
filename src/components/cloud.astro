@@ -1,17 +1,36 @@
-<div id="cloud">
-    
-</div>
+<div class="cloud"></div>
 
 <style>
-    #cloud {
-      position: absolute;
-      top: 0;
-      left: 100vw; /* Start outside the viewport */
-      width: 150px;
-      height: 100px;
-      background-color: #1A191F;
-      border-radius: 60px;
-      opacity: 0.8;
-      animation: moveCloud 10s linear infinite;
+  .cloud {
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    border-radius: 60px;
+    opacity: 0.8;
+    animation: moveCloud 100s linear infinite;
+  }
+
+  /* Randomize the spawn position */
+  :global(#cloud1) {
+    position: absolute;
+    top: 50%;
+    animation-duration: 12s;
+    animation-delay: -2s;
+  }
+
+  :global(#cloud2) {
+    position: absolute;
+    top: 500%;
+    animation-duration: 12s;
+    animation-delay: -2s;
+  }
+
+  @keyframes moveCloud {
+    from {
+      transform: translateX(100vw); /* Move from outside the screen */
     }
+    to {
+      transform: translateX(-100vw); /* Move completely out the other side */
+    }
+  }
 </style>
