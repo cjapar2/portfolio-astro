@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Cloud from "../components/cloud.astro";
+import About from "../components/about.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <div id="container">
+  <section id="container">
     <div id="hero-items">
       <h1>Hi, I'm Christian Apar.</h1>
       <h2>
@@ -55,7 +56,7 @@ import Cloud from "../components/cloud.astro";
         </svg>
       </div>
     </div>
-    <Cloud top="10%" animationDuration="50s" isInitial="true" />
+    <!-- <Cloud top="10%" animationDuration="50s" isInitial="true" />
     <Cloud top="30%" animationDuration="45s" isInitial="true" />
     <Cloud top="30%" animationDuration="50s" isInitial="true" />
     <Cloud top="50%" animationDuration="45s" isInitial="true" />
@@ -70,12 +71,18 @@ import Cloud from "../components/cloud.astro";
     <Cloud top="50%" animationDuration="45s" isInitial="false" />
     <Cloud top="70%" animationDuration="50s" isInitial="false" />
     <Cloud top="20%" animationDuration="45s" isInitial="false" />
-    <Cloud top="60%" animationDuration="50s" isInitial="false" />
-  </div>
+    <Cloud top="60%" animationDuration="50s" isInitial="false" /> -->
+  </section>
+  <section id="about">
+    <About />
+  </section>
+  <section id="projects">
+    <div>this is my about page</div>
+  </section>
 </Layout>
 
 <style>
-  #container {
+  section {
     position: relative;
     background-color: #1f1e26;
     background-image: url("/stars.png");
@@ -117,5 +124,9 @@ import Cloud from "../components/cloud.astro";
     font-size: 1rem;
     max-width: 35rem;
     line-height: 30px;
+  }
+
+  #about {
+    height: 150vh;
   }
 </style>
