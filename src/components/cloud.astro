@@ -1,35 +1,57 @@
 ---
-const { top, left, animationDuration } = Astro.props;
+const { top, left, animationDuration, isInitial = false } = Astro.props;
 
-// Generate a random starting offset between -100vw and 100vw
-const startX = Math.random() * 200 - 100 + "vw"; 
-const animationDelay = Math.random() * 10 + "s"; 
+// First clouds spawn randomly inside the viewport, future ones start off-screen right
+const xCoord = isInitial 
+  ? Math.random() * 200 - 100 + "vw"  // Random between -100vw and 100vw
+  : Math.random() * 10 + 100 + "vw";  // Always starts at 100vw to 110vw after first cycle
+
+const yCoord = Math.random() * 100 + "vh"; // Random vertical position
+const animationDelay = Math.random() * 10 + "s";
+const bgColor = isInitial ? "lightblue" : "white";
+console.log(isInitial);
 ---
 
 <div 
   class="cloud" 
-  style={`--start-x: ${startX}; --animation-duration: ${animationDuration}; top: ${top}; left: ${left};`}
+  style={`--x-coord: ${xCoord}; --animation-duration: ${animationDuration}; top: ${yCoord}; background-color: ${bgColor}`}
 ></div>
 
 <style>
   .cloud {
     position: absolute;
-    width: 300px;
-    height: 100px;
-    background-color: white;
+    width: 500px;
+    height: 75px;
     border-radius: 60px;
     opacity: 0.8;
     animation: moveCloud var(--animation-duration, 50s) linear infinite;
-    transform: translateX(var(--start-x));
+    transform: translateX(var(--x-coord));
     z-index: 1;
   }
 
   @keyframes moveCloud {
     from {
-      transform: translateX(var(--start-x)); /* Start at a random position */
+      transform: translateX(var(--x-coord)); /* Start at initial position */
     }
     to {
       transform: translateX(-100vw); /* Move off the left side */
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cloud = document.querySelector(".cloud");
+
+    cloud.addEventListener("animationiteration", () => {
+      // Respawn at the right side after first cycle
+      cloud.style.top = Math.random() * 100 + "vh"; // New random vertical position
+      cloud.style.transform = "translateX(110vw)"; // Reset to right side
+
+      // Restart animation smoothly
+      cloud.style.animation = "none";
+      void cloud.offsetHeight; // Force reflow
+      cloud.style.animation = `moveCloud var(--animation-duration, 50s) linear infinite`;
+    });
+  });
+</script>
