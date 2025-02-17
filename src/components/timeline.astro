@@ -1,0 +1,77 @@
+<div id="timeline">
+  <div id="container">
+    <div id="timeline-item">
+      <div id="year">2019-2023</div>
+      <div id="timeline-circle"></div>
+      <div id="content">
+        <h2>University of California, Santa Cruz</h2>
+        <h3>Bachlor of Science, Computer Science</h3>
+      </div>
+    </div>
+    <div id="timeline-item">
+      <div id="timeline-circle"></div>
+      <div id="year">2019-2023</div>
+      <div id="content">
+        <h2>University of California, Santa Cruz</h2>
+        <h3>Bachlor of Science, Computer Science</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0;
+  }
+
+  #timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+
+  #timeline-item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    width: 100%;
+    margin-bottom: 300px;
+  }
+
+  #year {
+    font-size: 18px;
+    color: #ddd;
+    padding-right: 20px;
+    width: 10%;
+    font-family: "Kodchasan", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #content {
+    width: 100%;
+    background: #232222;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-family: "Kodchasan", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #timeline-circle {
+  }
+
+  h2,
+  h3 {
+    margin: 0;
+  }
+</style>

@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Cloud from "../components/cloud.astro";
 import About from "../components/about.astro";
+import Timeline from "../components/timeline.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -76,8 +77,8 @@ import About from "../components/about.astro";
   <section id="about">
     <About />
   </section>
-  <section id="projects">
-    <div>this is my about page</div>
+  <section id="timeline">
+    <Timeline />
   </section>
 </Layout>
 
@@ -128,5 +129,9 @@ import About from "../components/about.astro";
 
   #about {
     height: 150vh;
+  }
+
+  #timeline {
+    height: 100vh;
   }
 </style>
