@@ -38,20 +38,3 @@ console.log(isInitial);
     }
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const cloud = document.querySelector(".cloud");
-
-    cloud.addEventListener("animationiteration", () => {
-      // Respawn at the right side after first cycle
-      cloud.style.top = Math.random() * 100 + "vh"; // New random vertical position
-      cloud.style.transform = "translateX(110vw)"; // Reset to right side
-
-      // Restart animation smoothly
-      cloud.style.animation = "none";
-      void cloud.offsetHeight; // Force reflow
-      cloud.style.animation = `moveCloud var(--animation-duration, 50s) linear infinite`;
-    });
-  });
-</script>
