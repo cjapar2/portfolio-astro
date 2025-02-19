@@ -1,0 +1,51 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+type Props = {
+  project: CollectionEntry<'projects'>;
+};
+
+const { project } = Astro.props;
+---
+
+<article>
+  <a href={`/blog/${project.slug}`}>
+    <div id="project">
+      <h2>{project.data.title}</h2>
+      <p>
+        {project.data.description}
+      </p>
+    </div>
+  </a>
+</article>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  #project {
+    height: 175px;
+    background-color: #272626;
+    border-radius: 15px;
+  }
+
+  h2 {
+      margin: 0;
+      margin-left: 20px;
+      color: white;
+      font-family: "Kodchasan", serif;
+      font-size: 28px;
+      font-weight: 400;
+      font-style: normal;
+  }
+
+  p {
+    text-decoration: none;
+      color: white;
+      font-family: "Kodchasan", serif;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: normal;
+  }
+</style>

@@ -1,9 +1,13 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Cloud from "../components/cloud.astro";
 import About from "../components/about.astro";
 import Timeline from "../components/timeline.astro";
-import Projects from "../components/projects.astro";
+import ProjectsList from "../components/projectslist.astro";
+
+const projects = await getCollection("projects");
+// console.log(projects);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -82,7 +86,7 @@ import Projects from "../components/projects.astro";
     <Timeline />
   </section>
   <section id="projects">
-    <Projects />
+    <ProjectsList projects={projects} />
   </section>
 </Layout>
 
@@ -142,7 +146,7 @@ import Projects from "../components/projects.astro";
   }
 
   #projects {
-    height: 100vh;
+    height: 150vh;
     z-index: 2;
   }
 </style>
