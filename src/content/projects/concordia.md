@@ -4,4 +4,5 @@ description: Concordia is a communication app, aiming to help organizations find
 stack: ["JavaScript", "HTML/CSS", "React Native", "Material UI"]
 image: ./images/concordia.png
 featured: true
+sortOrder: 3
 ---
