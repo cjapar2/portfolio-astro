@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry } from "astro:content";
 import { Picture } from "astro:assets";
+import Tag from "../components/Tag.astro";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -22,6 +23,7 @@ console.log(project.data.title);
       />
       <div id="text">
         <h2>{project.data.title}</h2>
+        <Tag stack={project.data.stack}/>
         <p>
           {project.data.description}
         </p>
@@ -54,7 +56,7 @@ console.log(project.data.title);
     display: flex;
     flex-direction: column;
     margin-left: 20px;
-    gap: 20px;
+    gap: 15px;
     align-self: center;
   }
 

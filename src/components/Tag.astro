@@ -1,3 +1,31 @@
-<div id="tag">
-    
+---
+import { getCollection } from "astro:content"
+
+type Props = {
+  stack: CollectionEntry<'stack'>;
+};
+
+const { stack } = Astro.props;
+---
+
+<div id="tags">
+    {stack.map(tech => (
+        <div id="tag">{tech}</div>
+    ))}
 </div>
+
+<style>
+    #tags {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    #tag {
+        background-color: white;
+        font-size: 14px;
+        font-family: "Kodchasan", serif;
+        color: black;
+        padding: 5px;
+        border-radius: 5px;
+    }
+</style>
