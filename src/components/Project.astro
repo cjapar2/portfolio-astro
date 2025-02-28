@@ -12,18 +12,20 @@ console.log(project.data.title);
 ---
 
 <article>
-  <a href={`/blog/${project.slug}`}>
+  <a>
     <div id="project">
-      <Picture
-        src={project.data.image}
-        alt={project.data.title}
-        width={280}
-        formats={["avif", "webp"]}
-        id="image"
-      />
+      <a href={`/blog/${project.slug}`}>
+        <Picture
+          src={project.data.image}
+          alt={project.data.title}
+          width={280}
+          formats={["avif", "webp"]}
+          id="image"
+        /></a
+      >
       <div id="text">
-        <h2>{project.data.title}</h2>
-        <Tag stack={project.data.stack}/>
+        <a href={`/blog/${project.slug}`}><h2>{project.data.title}</h2></a>
+        <Tag stack={project.data.stack} />
         <p>
           {project.data.description}
         </p>
