@@ -14,10 +14,10 @@
         </span>
       </div>
       <p id="job-desc">
-        I'm collecting, analyzing, and maintaining data that supports the development and
-        refinement of Tesla’s Optimus robot. By collaborating with
-        the engineering team, I'm helping improve data collection systems, ensuring
-        accuracy, and translating findings into actionable insights.
+        I'm collecting, analyzing, and maintaining data that supports the
+        development and refinement of Tesla’s Optimus robot. By collaborating
+        with the engineering team, I'm helping improve data collection systems,
+        ensuring accuracy, and translating findings into actionable insights.
       </p>
     </li>
     <li id="list-item">
@@ -90,11 +90,9 @@
 
 <style>
   #timeline {
-    position: absolute;
+    position: relative; /* instead of absolute */
     background-color: #272626;
     padding: 25px;
-    left: 50%;
-    transform: translateX(-50%);
     border-radius: 15px;
   }
 
@@ -142,7 +140,7 @@
   #job-title {
     color: white;
     font-family: "Kodchasan", serif;
-    font-size: 25px;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: 400;
     font-style: normal;
     margin-top: 0.25rem;
@@ -164,7 +162,7 @@
   p {
     color: rgb(230, 230, 230);
     font-family: "Kodchasan", serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     font-style: normal;
     line-height: 1.75;

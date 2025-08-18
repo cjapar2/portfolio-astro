@@ -80,13 +80,19 @@ const projects = await getCollection("projects");
     <Cloud top="60%" animationDuration="50s" isInitial="false" /> -->
   </section>
   <section id="about">
-    <About />
+    <div id="content">
+      <About />
+    </div>
   </section>
   <section id="timeline">
-    <Timeline />
+    <div id="content">
+      <Timeline />
+    </div>
   </section>
   <section id="projects">
-    <ProjectsList projects={projects} />
+    <div id="content">
+      <ProjectsList projects={projects} />
+    </div>
   </section>
 </Layout>
 
@@ -98,6 +104,12 @@ const projects = await getCollection("projects");
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  section > div {
+    max-width: 900px; /* controls readability */
+    margin: 0 auto; /* centers it */
+    padding: 0 20px;
   }
 
   #hero-items {
