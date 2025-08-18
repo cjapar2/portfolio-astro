@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import netlify from '@astrojs/netlify';
+
 const SERVER_PORT = 4321;
 
 const LOCALHOST_URL = `http://localhost:4321/`;
@@ -16,6 +18,7 @@ if (isBuild) {
 console.log(BASE_URL);
 // https://astro.build/config
 export default defineConfig({
-    server: {port: SERVER_PORT},
-    site: BASE_URL,
+  server: {port: SERVER_PORT},
+  site: BASE_URL,
+  adapter: netlify()
 });
