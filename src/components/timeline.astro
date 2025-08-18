@@ -1,114 +1,306 @@
+<div id="timeline">
+  <h2>Experiences</h2>
+  <ol id="list">
+    <li id="list-item">
+      <div id="dot"></div>
+      <time id="time">Mar 2025 - Present</time>
+      <div id="job-title">
+        AP Engineer (Optimus), <span id="company">
+          <a
+            href="https://www.tesla.com/"
+            rel="noopener noreferrer"
+            target="_blank">Tesla</a
+          >
+        </span>
+      </div>
+      <p id="job-desc">
+        I'm collecting, analyzing, and maintaining data that supports the development and
+        refinement of Tesla’s Optimus robot. By collaborating with
+        the engineering team, I'm helping improve data collection systems, ensuring
+        accuracy, and translating findings into actionable insights.
+      </p>
+    </li>
+    <li id="list-item">
+      <div id="dot"></div>
+      <time id="time">Mar 2025 - Present</time>
+      <div id="job-title">
+        Frontend Engineer, <span id="company">
+          <a
+            href="https://www.developforgood.org/"
+            rel="noopener noreferrer"
+            target="_blank">Develop for Good</a
+          > / <a
+            href="https://gshac.org/"
+            rel="noopener noreferrer"
+            target="_blank">GSHAC</a
+          >
+        </span>
+      </div>
+      <p id="job-desc">
+        Developed a platform to coordinate services and volunteer teams
+        supporting over 17,000 sugar cane workers across 50+ underserved
+        communities in the Dominican Republic. Integrated dynamic village data
+        into a responsive UI to streamline aid efforts. Collaborated with a team
+        of developers using version control best practices, with thorough
+        testing to ensure a smooth and reliable deployment.
+      </p>
+    </li>
+    <li id="list-item">
+      <div id="dot"></div>
+      <time id="time">Aug 2023 - Feb 2025</time>
+      <div id="job-title">
+        Computer Repair Technician, <span id="company">
+          <a
+            href="https://www.revivn.com/"
+            rel="noopener noreferrer"
+            target="_blank">Revivn</a
+          >
+        </span>
+      </div>
+      <p id="job-desc">
+        Assessed and repaired 100+ devices weekly to optimize performance for
+        resale and reuse. Handled customer returns, replaced MacBook components
+        such as keyboards and batteries, and resolved OS-related issues.
+        Maintained detailed records of configurations and repairs within the
+        inventory system to ensure accuracy and accountability.
+      </p>
+    </li>
+    <li id="list-item">
+      <div id="dot"></div>
+      <time id="time">Apr 2023 - Jun 2023</time>
+      <div id="job-title">
+        Computer Graphics Tutor, <span id="company">
+          <a
+            href="https://www.ucsc.edu/"
+            rel="noopener noreferrer"
+            target="_blank">University of California, Santa Cruz</a
+          >
+        </span>
+      </div>
+      <p id="job-desc">
+        Supported over 40 students through structured office hours and
+        one-on-one guidance on assignments. Helped debug programming projects
+        involving WebGL and Three.js. Managed course communications on Discord
+        and Piazza while coordinating with faculty and TAs to maintain smooth
+        class operations and uphold academic integrity.
+      </p>
+    </li>
+  </ol>
+</div>
 
+<style>
+  #timeline {
+    position: absolute;
+    background-color: #272626;
+    padding: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+  }
+
+  h2 {
+    margin: 0;
+    color: white;
+    font-family: "Kodchasan", serif;
+    font-size: 35px;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 20px;
+  }
+
+  #list {
+    position: relative;
+    margin-left: 0.375rem;
+    border-left: 1px solid white;
+  }
+
+  #list-item {
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+    list-style-type: none;
+  }
+
+  #dot {
+    position: absolute;
+    left: -0.375rem;
+    margin-top: 0.5rem;
+    border-radius: 9999px;
+    border-width: 1px;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+  }
+
+  #time {
+    color: rgb(155, 155, 155);
+    font-family: "Kodchasan", serif;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #job-title {
+    color: white;
+    font-family: "Kodchasan", serif;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 0.25rem;
+  }
+
+  #company {
+    color: white;
+    font-family: "Kodchasan", serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 0.25rem;
+  }
+
+  a {
+    color: white;
+  }
+
+  p {
+    color: rgb(230, 230, 230);
+    font-family: "Kodchasan", serif;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.75;
+    max-width: 700px;
+  }
+</style>
+
+<!-- <div class="title">Experience</div>
 <div class="timeline">
   <div class="timeline-item">
-      <div class="timeline-year">2019 - 2023</div>
-      <div class="timeline-circle"></div>
-      <div class="timeline-content">
-          <h3>University of California, Santa Cruz</h3>
-          <p>Bachelor's in Computer Science</p>
-      </div>
+    <div class="timeline-year">2019 - 2023</div>
+    <div class="timeline-circle"></div>
+    <div class="timeline-content">
+      <h3>University of California, Santa Cruz</h3>
+      <p>Bachelor's in Computer Science</p>
+    </div>
   </div>
 
   <div class="timeline-item">
-      <div class="timeline-year">2023</div>
-      <div class="timeline-circle"></div>
-      <div class="timeline-content">
-          <h3>Graduation & Work</h3>
-          <p>Graduated and started working as a computer technician.</p>
-      </div>
+    <div class="timeline-year">2023</div>
+    <div class="timeline-circle"></div>
+    <div class="timeline-content">
+      <h3>Graduation & Work</h3>
+      <p>Graduated and started working as a computer technician.</p>
+    </div>
   </div>
 
   <div class="timeline-item">
-      <div class="timeline-year">2025</div>
-      <div class="timeline-circle"></div>
-      <div class="timeline-content">
-          <h3>Develop for Good</h3>
-          <p>Building Concordia, an app for aid coordination.</p>
-      </div>
+    <div class="timeline-year">2025</div>
+    <div class="timeline-circle"></div>
+    <div class="timeline-content">
+      <h3>Develop for Good</h3>
+      <p>Building Concordia, an app for aid coordination.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-year">2025 -</div>
+    <div class="timeline-circle"></div>
+    <div class="timeline-content">
+      <h3>Tesla</h3>
+      <p>Gathering data for the Optimus bot.</p>
+    </div>
   </div>
 </div>
 
 <style>
+  .title {
+    color: white;
+    font-family: "Kodchasan", serif;
+    font-size: 35px;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 20px;
+    tranform: translateX(-50%);
+  }
 
   .timeline {
-      position: relative;
-      max-width: 600px;
-      margin: auto;
+    position: relative;
+    max-width: 600px;
+    margin: auto;
   }
 
   .timeline::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      width: 4px;
-      height: 100%;
-      background: white;
-      transform: translateX(-50%);
-      border-radius: 15px;
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: white;
+    transform: translateX(-50%);
+    border-radius: 15px;
   }
 
   .timeline-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      margin-bottom: 30px;
-      position: relative;
-      color: white;
-      font-family: "Kodchasan", serif;
-      font-weight: 400;
-      font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+    position: relative;
+    color: white;
+    font-family: "Kodchasan", serif;
+    font-weight: 400;
+    font-style: normal;
   }
 
   .timeline-year {
-      width: 45%;
-      text-align: right;
-      font-size: 18px;
-      font-weight: bold;
-      color: #ddd;
-      padding-right: 20px;
+    width: 45%;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ddd;
+    padding-right: 20px;
   }
 
   .timeline-circle {
-      position: absolute;
-      left: 50%;
-      width: 15px;
-      height: 15px;
-      background: white;
-      border-radius: 50%;
-      transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    transform: translateX(-50%);
   }
 
   .timeline-content {
-      width: 45%;
-      padding: 15px;
+    width: 45%;
+    padding: 15px;
   }
 
   @media (max-width: 768px) {
-      .timeline::before {
-          left: 10px;
-      }
+    .timeline::before {
+      left: 10px;
+    }
 
-      .timeline-item {
-          flex-direction: column;
-          align-items: flex-start;
-      }
+    .timeline-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
-      .timeline-circle {
-          left: 10px;
-          transform: translateX(0);
-      }
+    .timeline-circle {
+      left: 10px;
+      transform: translateX(0);
+    }
 
-      .timeline-year {
-          width: auto;
-          text-align: left;
-          padding-right: 0;
-          margin-bottom: 5px;
-      }
+    .timeline-year {
+      width: auto;
+      text-align: left;
+      padding-right: 0;
+      margin-bottom: 5px;
+    }
 
-      .timeline-content {
-          width: 100%;
-          margin-left: 30px;
-      }
+    .timeline-content {
+      width: 100%;
+      margin-left: 30px;
+    }
   }
-</style>
+</style> -->

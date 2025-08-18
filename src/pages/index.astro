@@ -93,10 +93,11 @@ const projects = await getCollection("projects");
 <style>
   section {
     position: relative;
-    background-color: #1f1e26;
-    background-image: url("/stars.png");
-    background-repeat: repeat;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #hero-items {
@@ -136,17 +137,14 @@ const projects = await getCollection("projects");
   }
 
   #about {
-    height: 150vh;
     z-index: 2;
   }
 
   #timeline {
-    height: 100vh;
     z-index: 2;
   }
 
   #projects {
-    height: 150vh;
     z-index: 2;
   }
 </style>

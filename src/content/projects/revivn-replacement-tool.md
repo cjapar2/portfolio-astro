@@ -1,6 +1,6 @@
 ---
 title: Macbook Replacement Tool
-description: A web application that streamlines finding devices for Revivn employees to be used for replacement of customers' devices.
+description: A web app tool created for Revivn employees to quickly search and detect replacement devices for customer returns.
 stack: ["JavaScript", "HTML/CSS", "Playwright", "Material UI"]
 image: ./images/revivn.png
 featured: true

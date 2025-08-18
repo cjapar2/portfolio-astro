@@ -9,23 +9,13 @@ const { stack } = Astro.props;
 ---
 
 <div id="tags">
-    {stack.map(tech => (
-        <div id="tag">{tech}</div>
-    ))}
+  {stack.join(", ")}
 </div>
 
 <style>
-    #tags {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
-    #tag {
-        background-color: white;
-        font-size: 14px;
-        font-family: "Kodchasan", serif;
-        color: black;
-        padding: 5px;
-        border-radius: 5px;
-    }
+  #tags {
+    font-size: 14px;
+    font-family: "Kodchasan", serif;
+    color: rgb(155, 155, 155);
+  }
 </style>
