@@ -14,7 +14,7 @@ const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <section id="container">
+  <section id="hero">
     <div id="hero-items">
       <h1>Hi, I'm Christian Apar.</h1>
       <h2>
@@ -107,9 +107,9 @@ const projects = await getCollection("projects");
   }
 
   section > div {
-    max-width: 900px; /* controls readability */
-    margin: 0 auto; /* centers it */
-    padding: 0 20px;
+    margin: 0 auto;       /* centers it */
+    max-width: 900px;     /* keeps it from blowing up on large screens */
+    padding: 0 20px;         /* prevent edge clipping on mobile */
   }
 
   #hero-items {
@@ -159,4 +159,35 @@ const projects = await getCollection("projects");
   #projects {
     z-index: 2;
   }
+
+
+  @media (max-width: 768px) {
+  #hero-items {
+    position: relative; /* prevents it from overflowing */
+    left: 0;
+    top: 0;
+    align-items: center; /* center text/icons */
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  #hero-icons {
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+    line-height: 24px;
+    max-width: 90%; /* shrink text width */
+  }
+
+  section {
+    padding: 3rem 0rem; /* smaller padding on mobile */
+  }
+  }
+
 </style>

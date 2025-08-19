@@ -14,7 +14,7 @@
         </span>
       </div>
       <p id="job-desc">
-        I'm collecting, analyzing, and maintaining data that supports the
+        Collecting, analyzing, and maintaining data that supports the
         development and refinement of Tesla’s Optimus robot. By collaborating
         with the engineering team, I'm helping improve data collection systems,
         ensuring accuracy, and translating findings into actionable insights.
@@ -100,7 +100,7 @@
     margin: 0;
     color: white;
     font-family: "Kodchasan", serif;
-    font-size: 35px;
+    font-size: 2rem;
     font-weight: 400;
     font-style: normal;
     margin-bottom: 20px;
@@ -132,7 +132,7 @@
   #time {
     color: rgb(155, 155, 155);
     font-family: "Kodchasan", serif;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 400;
     font-style: normal;
   }
@@ -140,7 +140,7 @@
   #job-title {
     color: white;
     font-family: "Kodchasan", serif;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: 1.5rem;
     font-weight: 400;
     font-style: normal;
     margin-top: 0.25rem;
@@ -149,7 +149,7 @@
   #company {
     color: white;
     font-family: "Kodchasan", serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     font-style: normal;
     margin-top: 0.25rem;
@@ -162,143 +162,59 @@
   p {
     color: rgb(230, 230, 230);
     font-family: "Kodchasan", serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     font-style: normal;
     line-height: 1.75;
     max-width: 700px;
   }
-</style>
-
-<!-- <div class="title">Experience</div>
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-year">2019 - 2023</div>
-    <div class="timeline-circle"></div>
-    <div class="timeline-content">
-      <h3>University of California, Santa Cruz</h3>
-      <p>Bachelor's in Computer Science</p>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-year">2023</div>
-    <div class="timeline-circle"></div>
-    <div class="timeline-content">
-      <h3>Graduation & Work</h3>
-      <p>Graduated and started working as a computer technician.</p>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-year">2025</div>
-    <div class="timeline-circle"></div>
-    <div class="timeline-content">
-      <h3>Develop for Good</h3>
-      <p>Building Concordia, an app for aid coordination.</p>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-year">2025 -</div>
-    <div class="timeline-circle"></div>
-    <div class="timeline-content">
-      <h3>Tesla</h3>
-      <p>Gathering data for the Optimus bot.</p>
-    </div>
-  </div>
-</div>
-
-<style>
-  .title {
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-size: 35px;
-    font-weight: 400;
-    font-style: normal;
-    margin-bottom: 20px;
-    tranform: translateX(-50%);
-  }
-
-  .timeline {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
-  }
-
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background: white;
-    transform: translateX(-50%);
-    border-radius: 15px;
-  }
-
-  .timeline-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 30px;
-    position: relative;
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .timeline-year {
-    width: 45%;
-    text-align: right;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ddd;
-    padding-right: 20px;
-  }
-
-  .timeline-circle {
-    position: absolute;
-    left: 50%;
-    width: 15px;
-    height: 15px;
-    background: white;
-    border-radius: 50%;
-    transform: translateX(-50%);
-  }
-
-  .timeline-content {
-    width: 45%;
-    padding: 15px;
-  }
 
   @media (max-width: 768px) {
-    .timeline::before {
-      left: 10px;
+    #timeline {
+      padding: 15px;
     }
 
-    .timeline-item {
-      flex-direction: column;
-      align-items: flex-start;
+    h2 {
+      font-size: 2rem;
     }
 
-    .timeline-circle {
-      left: 10px;
-      transform: translateX(0);
+    #list {
+      margin-left: 0.75rem;
+      border-left: 1px solid white; /* slightly thicker for visibility */
     }
 
-    .timeline-year {
-      width: auto;
-      text-align: left;
-      padding-right: 0;
-      margin-bottom: 5px;
+    #list-item {
+      margin-left: 0rem;
+      margin-bottom: 2rem;
     }
 
-    .timeline-content {
-      width: 100%;
-      margin-left: 30px;
+    #dot {
+    position: absolute;
+    left: -0.375rem;
+    margin-top: 0.5rem;
+    border-radius: 9999px;
+    border-width: 1px;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+    }
+
+    #time {
+      font-size: 0.7rem;
+    }
+
+    #job-title {
+      font-size: 1.2rem; /* smaller for narrow screens */
+    }
+
+    #company {
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 100%; /* don’t restrict width on mobile */
     }
   }
-</style> -->
+</style>
