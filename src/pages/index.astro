@@ -5,6 +5,8 @@ import Cloud from "../components/Cloud.astro";
 import About from "../components/About.astro";
 import Timeline from "../components/Timeline.astro";
 import ProjectsList from "../components/ProjectsList.astro";
+import VerticalNavBar from "../components/VerticalNavBar.astro";
+import HorizontalNavbar from "../components/HorizontalNavBar.astro";
 
 const projects = await getCollection("projects");
 // console.log(projects);
@@ -15,7 +17,9 @@ const projects = await getCollection("projects");
 
 <Layout>
   <section id="hero">
+      <HorizontalNavbar />
     <div id="hero-items">
+      <!-- <VerticalNavBar /> -->
       <h1>Hi, I'm Christian Apar.</h1>
       <h2>
         I’m a passionate developer aiming to build intuitive applications that
@@ -108,18 +112,19 @@ const projects = await getCollection("projects");
   }
 
   section > div {
-    margin: 0 auto;       /* centers it */
-    max-width: 900px;     /* keeps it from blowing up on large screens */
-    padding: 0 20px;         /* prevent edge clipping on mobile */
+    margin: 0 auto; /* centers it */
+    max-width: 900px; /* keeps it from blowing up on large screens */
+    padding: 0 20px; /* prevent edge clipping on mobile */
   }
 
   #hero-items {
     position: absolute;
+    align-items: center;
+    text-align: center;
+    top: 20%;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    left: 10%;
-    top: 20%;
     z-index: 2;
   }
 
@@ -161,34 +166,32 @@ const projects = await getCollection("projects");
     z-index: 2;
   }
 
-
   @media (max-width: 768px) {
-  #hero-items {
-    position: relative; /* prevents it from overflowing */
-    left: 0;
-    top: 0;
-    align-items: center; /* center text/icons */
-    text-align: center;
-    padding: 2rem 1rem;
-  }
+    #hero-items {
+      position: absolute;
+      align-items: center;
+      text-align: center;
+      left: 0;
+      top: 20%;
+      padding: 2rem 1rem;
+    }
 
-  #hero-icons {
-    justify-content: center;
-  }
+    #hero-icons {
+      justify-content: center;
+    }
 
-  h1 {
-    font-size: 2rem;
-  }
+    h1 {
+      font-size: 2rem;
+    }
 
-  h2 {
-    font-size: 0.9rem;
-    line-height: 24px;
-    max-width: 90%; /* shrink text width */
-  }
+    h2 {
+      font-size: 0.9rem;
+      line-height: 24px;
+      max-width: 90%; /* shrink text width */
+    }
 
-  section {
-    padding: 3rem 0rem; /* smaller padding on mobile */
+    section {
+      padding: 3rem 0rem; /* smaller padding on mobile */
+    }
   }
-  }
-
 </style>

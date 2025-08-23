@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 
 import netlify from '@astrojs/netlify';
 
+import react from '@astrojs/react';
+
 const SERVER_PORT = 4321;
 
 const LOCALHOST_URL = `http://localhost:4321/`;
@@ -20,5 +22,6 @@ console.log(BASE_URL);
 export default defineConfig({
   server: {port: SERVER_PORT},
   site: BASE_URL,
-  adapter: netlify()
+  adapter: netlify(),
+  integrations: [react()]
 });
