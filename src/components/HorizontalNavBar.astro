@@ -1,8 +1,9 @@
 <nav id="navbar">
-  <a id="nav-item"> home </a>
-  <a id="nav-item"> about </a>
-  <a id="nav-item"> experience</a>
-  <a id="nav-item"> projects </a>
+  <a id="nav-item" href="#hero"> home </a>
+  <a id="nav-item" href="#about"> about </a>
+  <a id="nav-item" href="#timeline"> experience</a>
+  <a id="nav-item" href="#projects"> projects </a>
+  <a id="nav-item" href="#contact"> contact </a>
 </nav>
 
 <style>
@@ -12,10 +13,22 @@
     flex-direction: row;
     gap: 2rem;
     top: 5%;
+    right: 4%;
+  }
+
+  #nav-item {
+    padding: 0.5rem 0.7rem;
+    border-radius: 15px;
+    text-decoration: none;
     color: white;
     font-family: "Kodchasan", serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
-    max-height: 10%;
+  }
+
+  #nav-item:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
   }
 </style>
