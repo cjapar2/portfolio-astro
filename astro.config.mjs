@@ -20,8 +20,12 @@ if (isBuild) {
 console.log(BASE_URL);
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
   server: {port: SERVER_PORT},
   site: BASE_URL,
   adapter: netlify(),
-  integrations: [react()]
+  integrations: [react()],
+  vite: {
+    envPrefix: ['RESEND_'],
+  }
 });

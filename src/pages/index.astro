@@ -7,6 +7,8 @@ import Timeline from "../components/Timeline.astro";
 import ProjectsList from "../components/ProjectsList.astro";
 import VerticalNavBar from "../components/VerticalNavBar.astro";
 import HorizontalNavbar from "../components/HorizontalNavBar.astro";
+import Resume from"../components/Resume.astro";
+import Email from "../components/Email.astro";
 
 const projects = await getCollection("projects");
 // console.log(projects);
@@ -16,7 +18,7 @@ const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <section id="hero">
+  <section>
     <HorizontalNavbar />
     <!-- <VerticalNavBar /> -->
     <div id="hero-items">
@@ -46,23 +48,26 @@ const projects = await getCollection("projects");
     <Cloud top="20%" animationDuration="45s" isInitial="false" />
     <Cloud top="60%" animationDuration="50s" isInitial="false" /> -->
   </section>
-  <section id="about">
+  <section>
     <div id="content">
       <About />
     </div>
   </section>
-  <section id="timeline">
+  <section>
     <div id="content">
       <Timeline />
     </div>
   </section>
-  <section id="projects">
+  <section>
     <div id="content">
       <ProjectsList projects={projects} />
     </div>
   </section>
-  <section id="resume">
-    <iframe src="../content/resume.pdf"  width="100%" height="600px" style="border: none;"></iframe>
+  <section>
+    <Resume />
+  </section>
+  <section>
+    <Email />
   </section>
 </Layout>
 
@@ -141,6 +146,19 @@ const projects = await getCollection("projects");
 
   #projects {
     z-index: 2;
+  }
+
+  #resume {
+  }
+
+  #resume-title {
+    margin: 0;
+    color: white;
+    font-family: "Kodchasan", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 20px;
   }
 
   @media (max-width: 768px) {
