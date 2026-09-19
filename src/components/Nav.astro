@@ -1,0 +1,248 @@
+---
+const tabs = [
+  { label: 'intro', href: '#intro' },
+  { label: 'about', href: '#about' },
+  { label: 'work', href: '#work' },
+  { label: 'resume', href: '#resume' },
+  { label: 'dogs', href: '#dogs' },
+  { label: 'contact', href: '#contact' },
+];
+---
+
+<nav class="tabbar" aria-label="Section navigation">
+  <div class="tabbar-inner">
+    <div class="tabs">
+      {
+        tabs.map((tab, i) => (
+          <a href={tab.href} class="tab" data-tab-index={i}>
+            <span class="dot" aria-hidden="true" />
+            <span class="mono file">{tab.label}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="tabbar-right">
+      <button
+        type="button"
+        class="theme-switch"
+        data-theme-toggle
+        aria-pressed="false"
+        aria-label="Toggle light and dark theme"
+      >
+        <span class="switch-track">
+          <span class="switch-glyph glyph-moon" aria-hidden="true">☾</span>
+          <span class="switch-glyph glyph-sun" aria-hidden="true">☼</span>
+          <span class="switch-knob"></span>
+        </span>
+      </button>
+      <div class="tabbar-status mono" aria-hidden="true">
+        <span class="status-dot" /> connected
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .tabbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--line-hair);
+  }
+
+  .tabbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 0 12px;
+  }
+
+  .tabs {
+    display: flex;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--text-dim);
+    border-right: 1px solid var(--line-hair);
+    white-space: nowrap;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .tab:hover,
+  .tab:focus-visible {
+    color: var(--text-main);
+    background: var(--bg-surface-raised);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-mint);
+    opacity: 0.55;
+    flex-shrink: 0;
+    transition: background-color 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .tab:hover .dot,
+  .tab:focus-visible .dot {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--accent-mint);
+  }
+
+  .tab.active .dot {
+    background: var(--accent-pink);
+    opacity: 1;
+    box-shadow: 0 0 8px var(--accent-pink);
+  }
+
+  .file {
+    font-size: 13px;
+  }
+
+  .tabbar-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    padding-left: 8px;
+  }
+
+  .theme-switch {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .switch-track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 52px;
+    height: 28px;
+    background: var(--bg-void);
+    border: 1px solid var(--line-hair);
+    border-radius: 999px;
+  }
+
+  .switch-glyph {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    color: var(--text-faint);
+    z-index: 1;
+  }
+
+  .glyph-moon {
+    left: 3px;
+  }
+
+  .glyph-sun {
+    left: 29px;
+  }
+
+  .switch-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--accent-amber), var(--accent-pink));
+    box-shadow: 0 0 10px var(--glow-amber), 0 0 4px rgba(0, 0, 0, 0.3) inset;
+    transform: translateX(0);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    z-index: 0;
+  }
+
+  .theme-switch[aria-pressed='true'] .switch-knob {
+    transform: translateX(26px);
+    background: radial-gradient(circle at 35% 30%, #fff6dd, var(--accent-mint));
+    box-shadow: 0 0 10px var(--glow-mint), 0 0 4px rgba(0, 0, 0, 0.15) inset;
+  }
+
+  .theme-switch:hover .switch-track,
+  .theme-switch:focus-visible .switch-track {
+    border-color: var(--accent-mint-dim);
+  }
+
+  .tabbar-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-faint);
+    padding: 0 4px 0 12px;
+    flex-shrink: 0;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-mint);
+    box-shadow: 0 0 6px var(--accent-mint);
+  }
+
+  @media (max-width: 640px) {
+    .tabbar-status span:last-child {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLAnchorElement>('.tab');
+  const sections = Array.from(tabs)
+    .map((tab) => document.querySelector<HTMLElement>(tab.getAttribute('href') || ''))
+    .filter((el): el is HTMLElement => !!el);
+
+  function setActiveTab(id: string) {
+    tabs.forEach((tab) => {
+      tab.classList.toggle('active', tab.getAttribute('href') === `#${id}`);
+    });
+  }
+
+  function updateActiveSection() {
+    const refLine = window.innerHeight * 0.35;
+    let currentId = sections[0]?.id;
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= refLine) {
+        currentId = section.id;
+      }
+    }
+    if (currentId) setActiveTab(currentId);
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      updateActiveSection();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateActiveSection();
+</script>

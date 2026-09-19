@@ -1,192 +1,24 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import Cloud from "../components/Cloud.astro";
-import About from "../components/About.astro";
-import Timeline from "../components/Timeline.astro";
-import ProjectsList from "../components/ProjectsList.astro";
-import VerticalNavBar from "../components/VerticalNavBar.astro";
-import HorizontalNavbar from "../components/HorizontalNavBar.astro";
-import Resume from"../components/Resume.astro";
-import Email from "../components/Email.astro";
-
-const projects = await getCollection("projects");
-// console.log(projects);
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Resume from '../components/Resume.astro';
+import Dogs from '../components/Dogs.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
-  <section>
-    <HorizontalNavbar />
-    <!-- <VerticalNavBar /> -->
-    <div id="hero-items">
-      <h1>Hi, I'm Christian Apar.</h1>
-      <h2>
-        I’m a passionate developer aiming to build intuitive applications that
-        make life easier. Whether improving everyday experiences or tackling
-        larger challenges, my goal is to create and contribute to solutions that
-        truly help the community.
-      </h2>
-      <div id="contact-btn">Get in touch</div>
-    </div>
-    <!-- <Cloud top="10%" animationDuration="50s" isInitial="true" />
-    <Cloud top="30%" animationDuration="45s" isInitial="true" />
-    <Cloud top="30%" animationDuration="50s" isInitial="true" />
-    <Cloud top="50%" animationDuration="45s" isInitial="true" />
-    <Cloud top="70%" animationDuration="50s" isInitial="true" />
-    <Cloud top="20%" animationDuration="45s" isInitial="true" />
-    <Cloud top="60%" animationDuration="50s" isInitial="true" />
-
-    
-    <Cloud top="10%" animationDuration="50s" isInitial="false" />
-    <Cloud top="30%" animationDuration="45s" isInitial="false" />
-    <Cloud top="30%" animationDuration="50s" isInitial="false" />
-    <Cloud top="50%" animationDuration="45s" isInitial="false" />
-    <Cloud top="70%" animationDuration="50s" isInitial="false" />
-    <Cloud top="20%" animationDuration="45s" isInitial="false" />
-    <Cloud top="60%" animationDuration="50s" isInitial="false" /> -->
-  </section>
-  <section>
-    <div id="content">
-      <About />
-    </div>
-  </section>
-  <section>
-    <div id="content">
-      <Timeline />
-    </div>
-  </section>
-  <section>
-    <div id="content">
-      <ProjectsList projects={projects} />
-    </div>
-  </section>
-  <section>
+  <Nav />
+  <main>
+    <Hero />
+    <About />
+    <Projects />
     <Resume />
-  </section>
-  <section>
-    <Email />
-  </section>
+    <Dogs />
+    <Contact />
+    <Footer />
+  </main>
 </Layout>
-
-<style>
-  section {
-    position: relative;
-    min-height: 100vh;
-    padding: 4rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  section > div {
-    margin: 0 auto; /* centers it */
-    max-width: 900px; /* keeps it from blowing up on large screens */
-    padding: 0 20px; /* prevent edge clipping on mobile */
-  }
-
-  #hero-items {
-    position: absolute;
-    align-items: center;
-    text-align: center;
-    top: 20%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    z-index: 2;
-  }
-
-  #contact-btn {
-    padding: 0.5rem 0.7rem;
-    border-radius: 10px;
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    font-family: "Kodchasan", serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    transition: background-color 0.2s ease-in-out;
-  }
-
-  #contact-btn:hover {
-    cursor: pointer;
-    border: 2px solid white;
-    background-color: transparent;
-    color: white;
-  }
-
-  h1,
-  h2 {
-    margin: 0;
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 1rem;
-    max-width: 35rem;
-    line-height: 30px;
-  }
-
-  #about {
-    z-index: 2;
-  }
-
-  #timeline {
-    z-index: 2;
-  }
-
-  #projects {
-    z-index: 2;
-  }
-
-  #resume {
-  }
-
-  #resume-title {
-    margin: 0;
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-size: 2rem;
-    font-weight: 400;
-    font-style: normal;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 768px) {
-    #hero-items {
-      position: absolute;
-      align-items: center;
-      text-align: center;
-      left: 0;
-      top: 20%;
-      padding: 2rem 1rem;
-    }
-
-    #hero-icons {
-      justify-content: center;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    h2 {
-      font-size: 0.9rem;
-      line-height: 24px;
-      max-width: 90%; /* shrink text width */
-    }
-
-    section {
-      padding: 3rem 0rem; /* smaller padding on mobile */
-    }
-  }
-</style>

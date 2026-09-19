@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Quicksand:wght@600;700&display=swap');
+
+:root {
+  /* color — night market (default, dark) */
+  --bg-void: #0a0c10;
+  --bg-surface: #12151c;
+  --bg-surface-raised: #171b24;
+  --line-hair: #1f2430;
+  --text-main: #eef1f5;
+  --text-dim: #9aa1b2;
+  --text-faint: #5b6274;
+  --accent-mint: #4cf5c0;
+  --accent-mint-dim: #2b7d63;
+  --accent-pink: #ff6fd8;
+  --accent-amber: #ffc857;
+
+  /* soft glow washes for that lit-signage, string-light feel */
+  --glow-mint: rgba(76, 245, 192, 0.32);
+  --glow-pink: rgba(255, 111, 216, 0.32);
+  --glow-amber: rgba(255, 200, 87, 0.3);
+
+  /* type */
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-cute: 'Quicksand', sans-serif;
+
+  /* layout */
+  --content-max: 700px;
+  --content-wide: 860px;
+  --radius: 16px;
+
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  /* color — daytime market (cozy pastel, same hues, lighter ground) */
+  --bg-void: #fff8ef;
+  --bg-surface: #fffaf3;
+  --bg-surface-raised: #fdf1de;
+  --line-hair: #f0ddc0;
+  --text-main: #2b2118;
+  --text-dim: #6c5c47;
+  --text-faint: #a4917a;
+  --accent-mint: #0f9a78;
+  --accent-mint-dim: #bfe8da;
+  --accent-pink: #d94fae;
+  --accent-amber: #c98a1f;
+
+  --glow-mint: rgba(15, 154, 120, 0.18);
+  --glow-pink: rgba(217, 79, 174, 0.18);
+  --glow-amber: rgba(201, 138, 31, 0.18);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg-void);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body,
+section,
+.tabbar,
+.dog-card,
+.project-card,
+.link-row,
+.cta-secondary,
+.tag,
+.theme-switch,
+.switch-track,
+.switch-knob {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+::selection {
+  background: var(--accent-pink);
+  color: var(--bg-void);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-mint);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--text-main);
+}
+
+p {
+  margin: 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-pink), var(--accent-mint));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* small "// comment" style label used as an eyebrow above headings —
+   the one piece of code-flavor that stays close to real reading content */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent-mint);
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: '//';
+  color: var(--text-faint);
+}
+
+section {
+  border-top: 1px solid var(--line-hair);
+  padding: 72px 0;
+}
+
+.wrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.wrap-wide {
+  max-width: var(--content-wide);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* night-market glow — cards and rows light up softly like stall signage,
+   cycling through the three neon colors so a row of cards reads like a
+   row of lit-up stalls rather than one flat color */
+.project-card,
+.dog-card,
+.link-row {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.project-card:hover,
+.project-card:focus-visible,
+.dog-card:hover,
+.dog-card:focus-visible,
+.link-row:hover,
+.link-row:focus-visible {
+  box-shadow: 0 0 26px var(--glow-mint);
+}
+
+.project-card:nth-of-type(2):hover,
+.project-card:nth-of-type(2):focus-visible,
+.dog-card:nth-of-type(2):hover,
+.dog-card:nth-of-type(2):focus-visible,
+.link-row:nth-of-type(2):hover,
+.link-row:nth-of-type(2):focus-visible {
+  box-shadow: 0 0 26px var(--glow-pink);
+}
+
+.project-card:nth-of-type(3):hover,
+.project-card:nth-of-type(3):focus-visible,
+.dog-card:nth-of-type(3):hover,
+.dog-card:nth-of-type(3):focus-visible,
+.link-row:nth-of-type(3):hover,
+.link-row:nth-of-type(3):focus-visible {
+  box-shadow: 0 0 26px var(--glow-amber);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+  section {
+    padding: 52px 0;
+  }
+}

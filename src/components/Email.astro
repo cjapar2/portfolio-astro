@@ -1,8 +1,21 @@
+---
+import { actions } from "astro:actions";
+
+const result = Astro.getActionResult(actions.send);
+if (result?.data) {
+  console.log('sent email!')
+}
+
+if (result?.error) {
+  console.log(result.error);
+}
+---
+
 <div id="email">
-  <form action="api/send-email" method="post" id="form">
+  <form action={actions.send} method="post" id="form">
     <div>
-      <label for="send-email__recipient">To:</label>
-      <input type="email" name="recipient" id="text-input" required />
+      <label for="send-email__recipient">Email:</label>
+      <input type="email" name="sender" id="text-input" required />
     </div>
     <div>
       <label for="send-email__subject">Subject:</label>
@@ -10,7 +23,8 @@
     </div>
     <div>
       <label for="send-email__message">Message:</label>
-      <textarea name="message" id="text-input" required></textarea>
+      <textarea name="content" id="text-input" rows="10" cols="50" required
+      ></textarea>
     </div>
     <input type="submit" value="Send message" id="submit" />
   </form>
@@ -38,6 +52,8 @@
 
   #text-input {
     display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 6px 12px;
     font-size: 16px;
     font-weight: 400;

@@ -1,38 +1,359 @@
-<div id="resume">
-  <h2>Resume</h2>
-  <iframe
-    src="https://drive.google.com/file/d/1Cb2ZSAHdbD-Q2Qr8tktiw8_HoSxoGNHA/preview"
-    width="800"
-    height="1000"
-    allow="autoplay"></iframe>
-</div>
+---
+const experience = [
+  {
+    role: 'Engineering Technician, Optimus Hand Repair',
+    org: 'Tesla',
+    place: 'Palo Alto, CA',
+    dates: 'Apr 2026 – Present',
+    bullets: [
+      'Perform electrical, mechanical, and electromechanical repairs on Optimus humanoid robot hands.',
+      'Troubleshoot motors, sensors, actuators, wiring, and electrical systems using multimeters and diagnostic tools.',
+      'Perform precision disassembly, component replacement, reassembly, and functional verification of robotic assemblies.',
+      'Read schematics, wiring diagrams, and technical documentation to diagnose and resolve hardware failures.',
+      'Document repairs and failure modes while collaborating with engineering on root-cause analysis and recurring issues.',
+    ],
+  },
+  {
+    role: 'Equipment Technician, Optimus',
+    org: 'Tesla',
+    place: 'Palo Alto, CA',
+    dates: 'Sep 2025 – Apr 2026',
+    bullets: [
+      'Bridged data collection and equipment service teams to ensure hardware readiness and reliable collection operations.',
+      'Built hardware for data collection equipment, ensuring components met specifications and operational requirements.',
+      'Assembled and tested custom wire harnesses to verify quality, connectivity, and operational performance.',
+      'Executed diagnostic procedures to troubleshoot PCBs, wire harnesses, electrical components, and equipment failures.',
+      'Generated daily technical reports summarizing defects, observations, and recommended collection improvements.',
+    ],
+  },
+  {
+    role: 'Software Engineer Intern',
+    org: 'Develop For Good (Good Samaritan Haitian Alliance Church)',
+    place: 'Remote',
+    dates: 'Oct 2024 – Feb 2025',
+    bullets: [
+      'Developed Concordia, a collaborative platform coordinating aid for 17,000+ sugar cane workers across 50+ impoverished communities in the Dominican Republic.',
+      'Coordinated with developers and designers to scope, implement, and deploy key features for the application.',
+      'Integrated the database with core UI components to dynamically surface village data for aid coordination.',
+      'Conducted thorough testing and debugging to ensure application reliability and smooth deployment.',
+    ],
+  },
+  {
+    role: 'Repair Technician',
+    org: 'Revivn',
+    place: 'San Leandro, CA',
+    dates: 'Aug 2023 – Feb 2025',
+    bullets: [
+      'Evaluated, diagnosed, and tested 100+ devices weekly to determine repair requirements and verify system functionality.',
+      'Diagnosed hardware failures and performed component-level repairs on 50+ returned devices weekly.',
+      'Performed component replacement and functional verification on MacBook systems, including keyboards, LCDs, batteries, and internal hardware.',
+      'Developed a web app to simplify the customer return and replacement process.',
+    ],
+  },
+  {
+    role: 'Computer Graphics Tutor',
+    org: 'University of California, Santa Cruz',
+    place: 'Santa Cruz, CA',
+    dates: 'Apr 2023 – Jun 2023',
+    bullets: [
+      'Ran weekly office hours for 40+ students, helping debug WebGL and Three.js assignments.',
+      'Coordinated with faculty on class logistics and academic integrity.',
+    ],
+  },
+];
+
+const skillGroups = [
+  { label: 'Languages', items: ['Python', 'JavaScript', 'HTML/CSS', 'C/C++', 'Haskell', 'Assembly'] },
+  { label: 'Frameworks & Libraries', items: ['React', 'React Native', 'Node.js', 'Express', 'Next.js', 'Tailwind CSS', 'Three.js', 'BeautifulSoup', 'Material UI', 'Jest', 'WebGL'] },
+  { label: 'Tools & Platforms', items: ['Docker', 'Heroku', 'Postman', 'Jira'] },
+];
+---
+
+<section id="resume" class="resume">
+  <div class="wrap-wide">
+    <div class="resume-header">
+      <div>
+        <p class="eyebrow">resume</p>
+        <h2 class="heading">Where I've worked</h2>
+      </div>
+      <a class="cta" href="/resume.pdf" download>
+        Download PDF <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-track" aria-hidden="true"></div>
+      <div class="timeline-progress" aria-hidden="true"></div>
+      <div class="timeline">
+        {
+          experience.map((job) => (
+            <div class="job">
+              <div class="job-meta">
+                <span class="dates mono">{job.dates}</span>
+              </div>
+              <div class="job-body">
+                <h3 class="role">{job.role}</h3>
+                <p class="org">{job.org} · {job.place}</p>
+                <ul class="bullets">
+                  {job.bullets.map((b) => <li>{b}</li>)}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="education">
+      <p class="subheading mono">education</p>
+      <div class="edu-row">
+        <span class="dates mono">2019 – 2023</span>
+        <div>
+          <h3 class="role">B.S. in Computer Science</h3>
+          <p class="org">University of California, Santa Cruz</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills">
+      {
+        skillGroups.map((group) => (
+          <div class="skill-group">
+            <p class="subheading mono">{group.label}</p>
+            <ul class="tag-list">
+              {group.items.map((s) => <li class="tag mono">{s}</li>)}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
 
 <style>
-  #resume {
+  .resume-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .heading {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--bg-void);
+    background: var(--accent-mint);
+    border-radius: var(--radius);
+    font-size: 14.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    background: var(--accent-pink);
+    transform: translateY(-1px);
+  }
+
+  .timeline-wrap {
     position: relative;
-    background-color: #272626;
-    padding: 25px;
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 15px;
   }
 
-  h2 {
-    margin: 0;
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-size: 35px;
-    font-weight: 400;
-    font-style: normal;
-    margin-bottom: 20px;
+  .timeline-track {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 139px;
+    width: 2px;
+    background: var(--line-hair);
+    border-radius: 2px;
   }
 
-  p {
+  .timeline-progress {
+    position: absolute;
+    top: 6px;
+    left: 139px;
+    width: 2px;
+    height: 0px;
+    background: linear-gradient(var(--accent-mint), var(--accent-pink));
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--glow-mint);
+  }
+
+  .timeline {
+    display: grid;
+    gap: 34px;
+  }
+
+  .job {
+    position: relative;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+  }
+
+  .job::before {
+    content: '';
+    position: absolute;
+    left: 136px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg-void);
+    border: 2px solid var(--accent-mint-dim);
+    z-index: 1;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .job.in-view::before {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 8px var(--accent-pink);
+  }
+
+  .dates {
+    font-size: 12.5px;
+    color: var(--text-faint);
+    padding-top: 3px;
+    text-align: right;
+  }
+
+  .role {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .org {
+    font-size: 14.5px;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  .bullets {
     margin: 0;
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 30px;
+    padding-left: 20px;
+    display: grid;
+    gap: 6px;
+  }
+
+  .bullets li {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--text-main);
+  }
+
+  .education {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line-hair);
+  }
+
+  .subheading {
+    font-size: 12.5px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+
+  .edu-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+  }
+
+  .skills {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line-hair);
+    display: grid;
+    gap: 24px;
+  }
+
+  .tag-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 13px;
+    padding: 7px 12px;
+    border: 1px solid var(--line-hair);
+    border-radius: 999px;
+    color: var(--accent-mint);
+    background: var(--bg-surface);
+  }
+
+  @media (max-width: 560px) {
+    .job,
+    .edu-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .dates {
+      text-align: left;
+    }
+
+    .timeline-track,
+    .timeline-progress,
+    .job::before {
+      display: none;
+    }
   }
 </style>
+
+<script>
+  const wrap = document.querySelector<HTMLElement>('.timeline-wrap');
+  const progress = document.querySelector<HTMLElement>('.timeline-progress');
+  const jobs = document.querySelectorAll<HTMLElement>('.job');
+
+  function updateTimelineProgress() {
+    if (!wrap || !progress) return;
+    const rect = wrap.getBoundingClientRect();
+    const triggerLine = window.innerHeight * 0.75;
+    const total = rect.height;
+    let scrolled = triggerLine - rect.top;
+    scrolled = Math.max(0, Math.min(total, scrolled));
+    const pct = total > 0 ? scrolled / total : 0;
+    progress.style.height = `${pct * total}px`;
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      updateTimelineProgress();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateTimelineProgress();
+
+  const jobObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    },
+    { threshold: 0.5 }
+  );
+  jobs.forEach((job) => jobObserver.observe(job));
+</script>

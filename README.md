@@ -1,48 +1,64 @@
-# Astro Starter Kit: Basics
+# Alex Rivera — portfolio
 
-```sh
-npm create astro@latest -- --template basics
+A software engineer portfolio built with [Astro](https://astro.build). Dark,
+code-flavored theme (a mint/pink/amber palette, monospace accents, a tab-style
+nav) but built to actually read comfortably: real headings, generous body
+text, and comfortable line lengths for the bio and project descriptions.
+
+## Run it
+
+```bash
+npm install
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Then open the local URL it prints (usually `http://localhost:4321`).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+To build for production:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Where to put your real content
 
-## 🧞 Commands
+Everything marked "placeholder" is meant to be replaced:
 
-All commands are run from the root of the project, from a terminal:
+- **`src/components/Hero.astro`** — name and the intro paragraph.
+- **`src/components/About.astro`** — the `skills` array at the top, and the
+  two bio paragraphs.
+- **`src/components/Projects.astro`** — the `projects` array: name, summary,
+  tech stack, link, and status (`live`, `open source`, `in progress`, or any
+  label you want — it becomes a pill automatically).
+- **`src/components/Contact.astro`** — the `links` array (email, GitHub,
+  LinkedIn, etc).
+- **`src/layouts/Layout.astro`** — the default page `<title>` and meta
+  description.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Structure
 
-## 👀 Want to learn more?
+```
+src/
+  layouts/Layout.astro      shared <head>
+  components/
+    Nav.astro                sticky "open file tabs" nav
+    Hero.astro                name, tagline, and two calls to action
+    About.astro                bio + skills as tag pills
+    Projects.astro            project cards
+    Contact.astro             contact links
+    Footer.astro
+  pages/index.astro           assembles everything
+  styles/global.css           design tokens (color, type, spacing)
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Design notes
+
+- Colors, fonts, and spacing are CSS variables at the top of `global.css` —
+  change the palette or type scale there and it cascades everywhere.
+- Body copy uses Inter at 17–19px with generous line-height for easy reading;
+  IBM Plex Mono is reserved for small UI details — nav, eyebrow labels, tags,
+  status pills — so it reads as a flavor, not the whole page.
+- The `.eyebrow` class gives any heading a small "// label" tag above it, the
+  one piece of code-flavor that stays part of the reading flow.
+- Respects `prefers-reduced-motion`.

@@ -1,0 +1,91 @@
+---
+const links = [
+  { label: 'Email', value: 'cjapar2@gmail.com', href: 'mailto:cjapar2@gmail.com' },
+  { label: 'GitHub', value: '@cjapar2', href: 'https://github.com/cjapar2' },
+  { label: 'LinkedIn', value: '/in/cj-apar', href: 'https://linkedin.com/in/cj-apar/' },
+];
+---
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow">contact</p>
+    <h2 class="heading">Let's build something</h2>
+    <p class="intro">
+      I'm always happy to talk about interesting problems, potential roles, or
+      just to swap notes on backend systems. The fastest way to reach me is
+      email.
+    </p>
+
+    <ul class="link-list">
+      {
+        links.map((l) => (
+          <li>
+            <a class="link-row" href={l.href}>
+              <span class="label">{l.label}</span>
+              <span class="value mono">{l.value}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .heading {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    margin-bottom: 18px;
+  }
+
+  .intro {
+    max-width: 56ch;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    margin-bottom: 36px;
+  }
+
+  .link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+    max-width: 480px;
+  }
+
+  .link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-decoration: none;
+    padding: 16px 18px;
+    background: var(--bg-surface);
+    border: 1px solid var(--line-hair);
+    border-radius: var(--radius);
+    color: var(--text-main);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .link-row:hover,
+  .link-row:focus-visible {
+    border-color: var(--accent-mint-dim);
+    transform: translateX(2px);
+  }
+
+  .label {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .value {
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+
+  .link-row:hover .value,
+  .link-row:focus-visible .value {
+    color: var(--accent-mint);
+  }
+</style>

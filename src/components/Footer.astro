@@ -1,0 +1,31 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner mono">
+    <span class="note">© {year} Christian Apar</span>
+    <span class="built">built with Astro</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 20px 0 32px;
+  }
+
+  .footer-inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12.5px;
+  }
+
+  .note,
+  .built {
+    color: var(--text-faint);
+  }
+</style>

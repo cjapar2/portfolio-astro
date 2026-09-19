@@ -1,47 +1,83 @@
-<div id="about">
-  <h2>About Me</h2>
-  <p>
-    I began my Computer Science degree at UC Santa Cruz in 2019 without a clear
-    career direction. That changed in 2022 when I took a Full Stack Applications
-    course, where I quickly picked up HTML, CSS, and JavaScript, and discovered
-    a passion for building web apps. After graduating in 2023, I worked as a
-    computer technician while developing side projects. Seeking larger impact, I
-    joined Develop for Good, where I collaborated with a team to develop
-    Concordia—an app coordinating aid efforts in the Dominican Republic.
-    <br></br>
-    Wanting to work on mission-driven, cutting-edge projects, I moved on to Tesla, where
-    I currently work as an AP Engineer on the Optimus team.
-    Supporting the development of autonomous robotics aligns with my passion for
-    creating technology that solves meaningful, global challenges.
-  </p>
-</div>
+---
+const skills = [
+  "JavaScript",
+  "Python",
+  "React",
+  "Node.js",
+  "Next.js",
+  "PostgreSQL",
+  "React Native",
+  "Three.js",
+];
+---
+
+<section id="about" class="about">
+  <div class="wrap">
+    <p class="eyebrow">about</p>
+    <h2 class="heading">A bit about me</h2>
+
+    <div class="bio">
+      <p>
+        I work across both software and hardware, depending on what a project
+        needs. That has included building Concordia, an app used to coordinate
+        aid work in the Dominican Republic, and learning to repair Optimus's
+        hands at Tesla down to the component level.
+      </p>
+      <p>
+        Most of what I do comes down to the same question: does this still work
+        once it's in someone else's hands, not just in a demo.
+      </p>
+    </div>
+
+    <p class="skills-label mono">what I work with</p>
+    <ul class="tag-list">
+      {skills.map((s) => <li class="tag mono">{s}</li>)}
+    </ul>
+  </div>
+</section>
 
 <style>
-  #about {
-    position: relative;
-    background-color: #272626;
-    padding: 25px;
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 15px;
+  .heading {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    margin-bottom: 28px;
   }
 
-  h2 {
-    margin: 0;
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-size: 35px;
-    font-weight: 400;
-    font-style: normal;
-    margin-bottom: 20px;
+  .bio p {
+    margin: 0 0 18px;
+    max-width: 62ch;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-main);
   }
 
-  p {
+  .bio p:last-child {
+    margin-bottom: 0;
+    color: var(--text-dim);
+  }
+
+  .skills-label {
+    margin: 40px 0 12px;
+    font-size: 13px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .tag-list {
+    list-style: none;
     margin: 0;
-    color: white;
-    font-family: "Kodchasan", serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 30px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 13px;
+    padding: 7px 12px;
+    border: 1px solid var(--line-hair);
+    border-radius: 999px;
+    color: var(--accent-mint);
+    background: var(--bg-surface);
   }
 </style>
